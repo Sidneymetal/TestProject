@@ -6,7 +6,8 @@ namespace TestAikoProject.Lib.Models
         public DateTime Date { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
-
+        public virtual Equipment Equipment { get; set; }
+        
         public EquipmentPositionHistory(int equipmentId, DateTime date, double lat, double lon)
         {
             EquipmentId = equipmentId;

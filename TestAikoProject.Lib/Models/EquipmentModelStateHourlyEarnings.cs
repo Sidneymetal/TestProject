@@ -5,6 +5,8 @@ namespace TestAikoProject.Lib.Models
         public int EquipmentStatetId { get; set; }
         public int EquipmentModelId { get; set; }
         public bool Value { get; set; }
+        public virtual EquipmentModel EquipmentModel { get; set; }
+        public virtual EquipmentState EquipmentState { get; set; }  
 
         public EquipmentModelStateHourlyEarnings(int equipmentStateId, int equipmentModelId, bool value)
         {

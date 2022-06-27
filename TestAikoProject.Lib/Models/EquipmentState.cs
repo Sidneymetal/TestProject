@@ -4,7 +4,9 @@ namespace TestAikoProject.Lib.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Color { get; set; }
+        public string Color { get; set; }        
+        public List<EquipmentStateHistory> ListEquipmentStateHistory { get; set; }
+        public List<EquipmentModelStateHourlyEarnings> ListEquipmentModelStateHourlyEarnings { get; set; }
 
         public EquipmentState(int id, string name, string color)
         {

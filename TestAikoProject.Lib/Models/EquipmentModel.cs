@@ -4,6 +4,7 @@ namespace TestAikoProject.Lib.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<EquipmentModelStateHourlyEarnings> ListEquipmentModelStateHourlyEarnings { get; set; }
 
         public EquipmentModel(int id, string name)
         {

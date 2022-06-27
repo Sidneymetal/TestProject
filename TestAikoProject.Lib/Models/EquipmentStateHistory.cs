@@ -5,6 +5,8 @@ namespace TestAikoProject.Lib.Models
         public int EquipmentId { get; set; }
         public DateTime Date { get; set; }
         public int EquipmentStatetId { get; set; }
+        public virtual Equipment Equipment { get; set; }
+        public virtual EquipmentState EquipmentState {get; set; }
 
         public EquipmentStateHistory(int equipmentId, DateTime date, int equipmentStateId)
         {
