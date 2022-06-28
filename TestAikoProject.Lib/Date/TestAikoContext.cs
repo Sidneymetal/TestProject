@@ -11,25 +11,36 @@ namespace TestAikoProject.Lib.Date.Repository
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Equipment>().ToTable("operation.equipment");
+            modelBuilder.HasDefaultSchema("operation");
+
+            modelBuilder.Entity<Equipment>().ToTable("equipment");
             modelBuilder.Entity<Equipment>().HasKey(x => x.Id);
             modelBuilder.Entity<Equipment>().HasMany(x => x.ListEquipmentPositionHistory).WithOne(x => x.Equipment).HasForeignKey(x => x.EquipmentId);
+            modelBuilder.Entity<Equipment>().HasMany(x => x.ListEquipmentStateHistory).WithOne(x => x.Equipment).HasForeignKey(x => x.EquipmentId);
 
-            modelBuilder.Entity<EquipmentModel>().ToTable("operation.equipment_model");
+            modelBuilder.Entity<EquipmentModel>().ToTable("equipment_model");
             modelBuilder.Entity<EquipmentModel>().HasKey(x => x.Id);
             modelBuilder.Entity<EquipmentModel>().HasMany(x => x.ListEquipmentModelStateHourlyEarnings).WithOne(x => x.EquipmentModel).HasForeignKey(x => x.EquipmentModelId);
-            modelBuilder.Entity<EquipmentModel>().HasMany(x => x.ListEquipmentModelStateHourlyEarnings).WithOne(x => x.EquipmentModel).HasForeignKey(x => x.EquipmentStatetId);
+        
             
-            modelBuilder.Entity<EquipmentState>().ToTable("operation.equipment_state");
+            modelBuilder.Entity<EquipmentState>().ToTable("equipment_state");
             modelBuilder.Entity<EquipmentState>().HasKey(x => x.Id);
-            modelBuilder.Entity<EquipmentState>().HasMany(x => x.ListEquipmentModelStateHourlyEarnings).WithOne(x => x.EquipmentState).HasForeignKey(x => x.EquipmentState);
+            modelBuilder.Entity<EquipmentState>().HasMany(x => x.ListEquipmentModelStateHourlyEarnings).WithOne(x => x.EquipmentState).HasForeignKey(x => x.EquipmentStateId);
 
 
-            modelBuilder.Entity<EquipmentStateHistory>().ToTable("operation.equipment_state_history");
-            
-            modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().ToTable("operation.equipment_model_state_hourly_earnings");
+            modelBuilder.Entity<EquipmentStateHistory>().ToTable("equipment_state_history");
+            modelBuilder.Entity<EquipmentStateHistory>().HasKey(x => new { x.EquipmentId, x.Date });
 
-            modelBuilder.Entity<EquipmentPositionHistory>().ToTable("operation.equipment_position_history");
+
+            modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().ToTable("equipment_model_state_hourly_earnings");
+            modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().HasKey(x => new { x.EquipmentModelId, x.EquipmentStateId});
+
+            modelBuilder.Entity<EquipmentPositionHistory>().ToTable("equipment_position_history");
+            modelBuilder.Entity<EquipmentPositionHistory>().HasKey(x => new { x.EquipmentId, x.Date });
+
+
+
+
         }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<EquipmentModel> EquipmentsModels { get; set; }

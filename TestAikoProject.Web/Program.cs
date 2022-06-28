@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using TestAikoProject.Lib.Date.Repository;
 using TestAikoProject.Lib.Interface;
+using TestAikoProject.Lib.Models;
+using TestAikoProject.Lib.Date;
+using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<TestAikoContext>(conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("data.beckup")).UseSnakeCaseNamingConvention());
+builder.Services.AddDbContext<TestAikoContext>(conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("testdb")).UseSnakeCaseNamingConvention());
 
 builder.Services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 

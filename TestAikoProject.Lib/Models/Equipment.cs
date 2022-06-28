@@ -1,33 +1,33 @@
 namespace TestAikoProject.Lib.Models
 {
-    public class Equipment 
+    public class Equipment : EquipmentBase
     {
-        public int Id { get; set; }
-        public string EquipmentModelId { get; set; }
+        public Guid Id { get; set; }
+        public Guid EquipmentModelId { get; set; }
         public string Name { get; set; }
         public List<EquipmentStateHistory> ListEquipmentStateHistory { get; set; } = new List<EquipmentStateHistory>();
         public List<EquipmentPositionHistory> ListEquipmentPositionHistory { get; set; } = new List<EquipmentPositionHistory>();
         
-        public Equipment(int id, string equipmentModelId, string name)
+        public Equipment(Guid id, Guid equipmentModelId, string name)
         {
             Id = id;
             EquipmentModelId = equipmentModelId;
             Name = name;
         }
 
-        public int GetId()
+        public Guid GetId()
         {
             return Id;
         }
-        public void SetId(int id)
+        public void SetId(Guid id)
         {
             Id = id;
         }
-        public string GetEquipmentModelId()
+        public Guid GetEquipmentModelId()
         {
             return EquipmentModelId;
         }
-        public void SetEquipmentModelId(string equipmentModelId)
+        public void SetEquipmentModelId(Guid equipmentModelId)
         {
             EquipmentModelId = equipmentModelId;
         }

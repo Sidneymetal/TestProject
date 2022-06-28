@@ -1,14 +1,14 @@
 namespace TestAikoProject.Lib.Models
 {
-    public class EquipmentPositionHistory
+    public class EquipmentPositionHistory : EquipmentBase
     {
-        public int EquipmentId { get; set; }
+        public Guid EquipmentId { get; set; }
         public DateTime Date { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
-        public virtual Equipment Equipment { get; set; }
+        public Equipment Equipment { get; set; }
         
-        public EquipmentPositionHistory(int equipmentId, DateTime date, double lat, double lon)
+        public EquipmentPositionHistory(Guid equipmentId, DateTime date, double lat, double lon)
         {
             EquipmentId = equipmentId;
             Date = date;
@@ -16,11 +16,11 @@ namespace TestAikoProject.Lib.Models
             Lon = lon;
         }
 
-        public int GetEquipmentId()
+        public Guid GetEquipmentId()
         {
             return EquipmentId;
         }
-        public void SetEquipmentId(int equipmentId)
+        public void SetEquipmentId(Guid equipmentId)
         {
             EquipmentId = equipmentId;
         }

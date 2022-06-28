@@ -1,33 +1,33 @@
 namespace TestAikoProject.Lib.Models
 {
-    public class EquipmentModelStateHourlyEarnings
+    public class EquipmentModelStateHourlyEarnings : EquipmentBase
     {
-        public int EquipmentStatetId { get; set; }
-        public int EquipmentModelId { get; set; }
+        public Guid EquipmentStateId { get; set; }
+        public Guid EquipmentModelId { get; set; }
         public bool Value { get; set; }
         public virtual EquipmentModel EquipmentModel { get; set; }
-        public virtual EquipmentState EquipmentState { get; set; }  
+        public EquipmentState EquipmentState { get; set; }  
 
-        public EquipmentModelStateHourlyEarnings(int equipmentStateId, int equipmentModelId, bool value)
+        public EquipmentModelStateHourlyEarnings(Guid equipmentStateId, Guid equipmentModelId, bool value)
         {
-            EquipmentStatetId = equipmentStateId;
+            EquipmentStateId = equipmentStateId;
             EquipmentModelId = equipmentModelId;
             Value = value;
         }
 
-        public int GetEquipmentStateId()
+        public Guid GetEquipmentStateId()
         {
-            return EquipmentStatetId;
+            return EquipmentStateId;
         }
-        public void SetEquipmentStateId(int equipmentStateId)
+        public void SetEquipmentStateId(Guid equipmentStateId)
         {
-            EquipmentStatetId = equipmentStateId;
+            EquipmentStateId = equipmentStateId;
         }
-        public int GetEquipmentModelId()
+        public Guid GetEquipmentModelId()
         {
             return EquipmentModelId;
         }
-        public void SetEquipmentModelId(int equipmentModelId)
+        public void SetEquipmentModelId(Guid equipmentModelId)
         {
             EquipmentModelId = equipmentModelId;
         }

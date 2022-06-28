@@ -1,14 +1,14 @@
 namespace TestAikoProject.Lib.Models
 {
-    public class EquipmentStateHistory
+    public class EquipmentStateHistory : EquipmentBase
     {
-        public int EquipmentId { get; set; }
+        public Guid EquipmentId { get; set; }
         public DateTime Date { get; set; }
-        public int EquipmentStatetId { get; set; }
+        public Guid EquipmentStatetId { get; set; }
         public virtual Equipment Equipment { get; set; }
         public virtual EquipmentState EquipmentState {get; set; }
 
-        public EquipmentStateHistory(int equipmentId, DateTime date, int equipmentStateId)
+        public EquipmentStateHistory(Guid equipmentId, DateTime date, Guid equipmentStateId)
         {
             EquipmentId = equipmentId;
             Date = date; 
@@ -16,11 +16,11 @@ namespace TestAikoProject.Lib.Models
             
         }
 
-        public int GetEquipmentId()
+        public Guid GetEquipmentId()
         {
             return EquipmentId;
         }
-        public void SetEquipmentId(int equipmentId)
+        public void SetEquipmentId(Guid equipmentId)
         {
             EquipmentId = equipmentId;
         }
@@ -32,11 +32,11 @@ namespace TestAikoProject.Lib.Models
         {
             Date = date;
         }
-        public int GetEquipmentStateId()
+        public Guid GetEquipmentStateId()
         {
             return EquipmentStatetId;
         }
-        public void SetEquipmentStateId(int equipmentStateId)
+        public void SetEquipmentStateId(Guid equipmentStateId)
         {
             EquipmentStatetId = equipmentStateId;
         }        
