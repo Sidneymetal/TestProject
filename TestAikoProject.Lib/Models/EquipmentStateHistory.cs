@@ -4,7 +4,7 @@ namespace TestAikoProject.Lib.Models
     {
         public Guid EquipmentId { get; set; }
         public DateTime Date { get; set; }
-        public Guid EquipmentStatetId { get; set; }
+        public Guid EquipmentStateId { get; set; }
         public virtual Equipment Equipment { get; set; }
         public virtual EquipmentState EquipmentState {get; set; }
 
@@ -12,7 +12,7 @@ namespace TestAikoProject.Lib.Models
         {
             EquipmentId = equipmentId;
             Date = date; 
-            EquipmentStatetId = equipmentStateId;           
+            EquipmentStateId = equipmentStateId;           
             
         }
 
@@ -34,11 +34,11 @@ namespace TestAikoProject.Lib.Models
         }
         public Guid GetEquipmentStateId()
         {
-            return EquipmentStatetId;
+            return EquipmentStateId;
         }
         public void SetEquipmentStateId(Guid equipmentStateId)
         {
-            EquipmentStatetId = equipmentStateId;
+            EquipmentStateId = equipmentStateId;
         }        
     }
 }

@@ -30,14 +30,15 @@ namespace TestAikoProject.Lib.Date.Repository
 
             modelBuilder.Entity<EquipmentStateHistory>().ToTable("equipment_state_history");
             modelBuilder.Entity<EquipmentStateHistory>().HasKey(x => new { x.EquipmentId, x.Date });
-
+            modelBuilder.Entity<EquipmentStateHistory>().Ignore(x => x.Id);
 
             modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().ToTable("equipment_model_state_hourly_earnings");
             modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().HasKey(x => new { x.EquipmentModelId, x.EquipmentStateId});
+            modelBuilder.Entity<EquipmentModelStateHourlyEarnings>().Ignore(x => x.Id);
 
             modelBuilder.Entity<EquipmentPositionHistory>().ToTable("equipment_position_history");
             modelBuilder.Entity<EquipmentPositionHistory>().HasKey(x => new { x.EquipmentId, x.Date });
-
+            modelBuilder.Entity<EquipmentPositionHistory>().Ignore(x => x.Id);
 
 
 

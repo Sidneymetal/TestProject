@@ -4,11 +4,11 @@ namespace TestAikoProject.Lib.Models
     {
         public Guid EquipmentStateId { get; set; }
         public Guid EquipmentModelId { get; set; }
-        public bool Value { get; set; }
+        public double Value { get; set; }
         public virtual EquipmentModel EquipmentModel { get; set; }
         public EquipmentState EquipmentState { get; set; }  
 
-        public EquipmentModelStateHourlyEarnings(Guid equipmentStateId, Guid equipmentModelId, bool value)
+        public EquipmentModelStateHourlyEarnings(Guid equipmentStateId, Guid equipmentModelId, double value)
         {
             EquipmentStateId = equipmentStateId;
             EquipmentModelId = equipmentModelId;
@@ -31,11 +31,11 @@ namespace TestAikoProject.Lib.Models
         {
             EquipmentModelId = equipmentModelId;
         }
-        public bool GetValue()
+        public double GetValue()
         {
             return Value;
         }
-        public void SetValue(bool value)
+        public void SetValue(double value)
         {
             Value = value;
         }
